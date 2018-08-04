@@ -1,14 +1,10 @@
 package com.shalty.technicaltestdigitalturbine;
 
-import android.app.Dialog;
-import android.app.ProgressDialog;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.widget.FrameLayout;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.shalty.technicaltestdigitalturbine.Interfaces.RecyclerItemClickListener;
@@ -17,7 +13,6 @@ import com.shalty.technicaltestdigitalturbine.Util.AppData;
 import com.shalty.technicaltestdigitalturbine.Util.RetrofitClientInstance;
 import com.shalty.technicaltestdigitalturbine.fragment.HomeScreen;
 import com.shalty.technicaltestdigitalturbine.fragment.ShowItem;
-import com.shalty.technicaltestdigitalturbine.types.Ad;
 import com.shalty.technicaltestdigitalturbine.types.Ads;
 
 import java.util.List;
@@ -40,16 +35,16 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemClick
 //    /getAds?id=236&password=OVUJ1DJN&siteId=10777&deviceId=4230&sessionId=techtestsession&totalCampaignsRequested=10
 
 
-        Call<List<Ads>> call = service.getProdact(/*"236","OVUJ1DJN","10777","4230",
+        Call<Ads> call = service.getProdact(/*"236","OVUJ1DJN","10777","4230",
                 "techtestsession","10","yaish"*/);
-        call.enqueue(new Callback<List<Ads>>() {
+        call.enqueue(new Callback<Ads>() {
             @Override
-            public void onResponse(Call<List<Ads>> call, Response<List<Ads>> response) {
+            public void onResponse(Call<Ads> call, Response<Ads> response) {
                 Toast.makeText(MainActivity.this,response.toString(),Toast.LENGTH_LONG).show();
             }
 
             @Override
-            public void onFailure(Call<List<Ads>> call, Throwable t) {
+            public void onFailure(Call<Ads> call, Throwable t) {
                 Toast.makeText(MainActivity.this,t.toString(),Toast.LENGTH_LONG).show();
 
             }

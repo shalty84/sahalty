@@ -24,8 +24,9 @@ public class RetrofitClientInstance {
 
             retrofit = new retrofit2.Retrofit.Builder()
                     .baseUrl(API_BASE_URL)
-                    .client(new OkHttpClient())
-                    .addConverterFactory(SimpleXmlConverterFactory.create())
+                    //.client(new OkHttpClient())
+                    .addConverterFactory(SimpleXmlConverterFactory.createNonStrict(new Persister(new AnnotationStrategy())))
+                    //.addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
 
         }

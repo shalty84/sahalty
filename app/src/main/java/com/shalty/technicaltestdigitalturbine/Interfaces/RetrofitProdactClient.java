@@ -17,7 +17,7 @@ public interface RetrofitProdactClient {
 
 
     @GET("getAds?id=236&password=OVUJ1DJN&siteId=10777&deviceId=4230&sessionId=techtestsession&totalCampaignsRequested=10")
-    Call<List<Ads>> getProdact(
+    Call<Ads> getProdact(
 //            @Query("id") String id,
 //            @Query("password") String password,
 //            @Query("siteId") String siteId,
